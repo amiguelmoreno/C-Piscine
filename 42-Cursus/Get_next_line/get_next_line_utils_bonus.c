@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:40:36 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/23 13:27:50 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/23 13:53:13 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -68,18 +68,15 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
-	void	*memory;
+	char	*res;
 
-	if (size == SIZE_MAX)
+	res = malloc(elementSize * elementCount);
+	if (!res)
 		return (NULL);
-	memory = (void *)malloc(size * nmemb);
-	if (!memory)
-		return (NULL);
-	else
-		ft_bzero(memory, size * nmemb);
-	return (memory);
+	ft_bzero(res, elementSize * elementCount);
+	return (res);
 }
 
 size_t	ft_strlen(const char *str)
