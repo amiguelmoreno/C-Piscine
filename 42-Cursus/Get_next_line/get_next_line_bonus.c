@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:40:32 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/23 13:28:59 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:40:11 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_line(char *buffer)
 		return (NULL);
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	line = ft_calloc(i + 2, sizeof(char));
+	line = ft_calloc(sizeof(char), i + 2);
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 	{
@@ -66,7 +66,7 @@ char	*ft_line(char *buffer)
 		i++;
 	}
 	if (buffer[i] && buffer[i] == '\n')
-		line[i++] = '\n';
+		line[i] = '\n';
 	return (line);
 }
 
@@ -110,16 +110,3 @@ char	*get_next_line(int fd)
 	buffer[fd] = ft_next(buffer[fd]);
 	return (line);
 }
-/*
-int	main(void)
-{
-	int	fd;
-
-	fd = open("file.txt", O_RDONLY);
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	close(fd);
-	return (0);
-}
-*/

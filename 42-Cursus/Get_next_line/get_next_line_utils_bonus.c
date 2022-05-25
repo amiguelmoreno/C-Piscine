@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:40:36 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/23 13:53:13 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:54:10 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
+/*
 void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
 	char	*res;
@@ -77,6 +77,21 @@ void	*ft_calloc(size_t elementCount, size_t elementSize)
 		return (NULL);
 	ft_bzero(res, elementSize * elementCount);
 	return (res);
+}
+*/
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*memory;
+
+	if (size == SIZE_MAX)
+		return (NULL);
+	memory = (void *)malloc(size * nmemb);
+	if (!memory)
+		return (NULL);
+	else
+		ft_bzero(memory, size * nmemb);
+	return (memory);
 }
 
 size_t	ft_strlen(const char *str)
