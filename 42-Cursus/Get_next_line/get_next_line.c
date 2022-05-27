@@ -6,15 +6,11 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:40:32 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/23 13:28:47 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/26 12:01:58 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 
 char	*ft_free(char *buffer, char *buf)
 {
@@ -89,7 +85,7 @@ char	*read_file(int fd, char *res)
 		}
 		buffer[byte_read] = 0;
 		res = ft_free(res, buffer);
-		if (ft_strchr(buffer, '\n'))
+		if (ft_strchr(res, '\n'))
 			break ;
 	}
 	free(buffer);
@@ -110,16 +106,3 @@ char	*get_next_line(int fd)
 	buffer = ft_next(buffer);
 	return (line);
 }
-/*
-int	main(void)
-{
-	int	fd;
-
-	fd = open("file.txt", O_RDONLY);
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	close(fd);
-	return (0);
-}
-*/

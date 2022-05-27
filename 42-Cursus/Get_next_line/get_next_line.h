@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:40:39 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/23 13:22:24 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:55:17 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # endif
 
 # include <stdlib.h>
-# include <sys/types.h>
-# include <sys/uio.h>
 # include <unistd.h>
 
 /* get_next_line.c */
