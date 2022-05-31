@@ -6,17 +6,22 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 19:45:55 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/31 14:32:45 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/31 20:25:27 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
 
-int	ft_conversion(char *format, int *ptr)
+int	ft_conversion(char const *format, va_list ptr, int i)
 {
-	int	sub_cnt;
+	int		sub_cnt;
+	char	str;
 
 	sub_cnt = 0;
+	if (format[i + 1] == 'c')
+	{
+	}
+	return (sub_cnt);
 }
 
 int	ft_printf(char const *format, ...)
@@ -29,10 +34,10 @@ int	ft_printf(char const *format, ...)
 	va_start(ptr, format);
 	while (format[i])
 	{
-		if (format[i] == "%")
+		if (format[i] == '%')
 		{
-			cnt += ft_conversion(format[i + 1], ptr);
-			i++;
+			cnt += ft_conversion(format, ptr, i);
+			i += 2;
 		}
 		else
 		{
@@ -48,6 +53,9 @@ int	ft_printf(char const *format, ...)
 
 int	main(void)
 {
-	ft_printf("Hola\n");
-	printf("Hola\n");
+	char	c;
+
+	c = 'z';
+	ft_printf("Hola %c \n", c);
+	printf("Hola %c \n", 'z');
 }

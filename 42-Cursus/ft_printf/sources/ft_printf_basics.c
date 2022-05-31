@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_basics.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 19:51:39 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/31 19:05:28 by antmoren         ###   ########.fr       */
+/*   Created: 2022/05/31 20:15:25 by antmoren          #+#    #+#             */
+/*   Updated: 2022/05/31 20:25:56 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_printstr(char *str)
+{
+	int	i;
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-
-#endif
+	i = 0;
+	if (!str)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
+}
