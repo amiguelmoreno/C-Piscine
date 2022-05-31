@@ -6,11 +6,11 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:40:36 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/23 13:53:13 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/30 12:02:55 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

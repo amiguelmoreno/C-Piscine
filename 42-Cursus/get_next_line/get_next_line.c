@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:40:32 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/27 14:31:52 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/31 08:41:26 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_line(char *buffer)
 		i++;
 	}
 	if (buffer[i] && buffer[i] == '\n')
-		line[i++] = '\n';
+		line[i] = '\n';
 	return (line);
 }
 
@@ -81,6 +81,7 @@ char	*read_file(int fd, char *res)
 		if (byte_read == -1)
 		{
 			free(buffer);
+			free(res);
 			return (NULL);
 		}
 		buffer[byte_read] = 0;
@@ -97,7 +98,7 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = read_file(fd, buffer);
 	if (!buffer)

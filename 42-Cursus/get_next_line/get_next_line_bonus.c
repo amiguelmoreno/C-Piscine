@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 13:40:32 by antmoren          #+#    #+#             */
-/*   Updated: 2022/05/27 14:00:20 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/05/31 08:43:00 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_line(char *buffer)
 		i++;
 	}
 	if (buffer[i] && buffer[i] == '\n')
-		line[i++] = '\n';
+		line[i] = '\n';
 	return (line);
 }
 
