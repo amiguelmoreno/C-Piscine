@@ -6,94 +6,87 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 10:11:34 by antmoren          #+#    #+#              #
-#    Updated: 2022/05/06 09:57:15 by antmoren         ###   ########.fr        #
+#    Updated: 2022/06/01 09:51:22 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+# Name of the library
+NAME = ft_printf.a
 
-SRCS	=	ft_isalnum.c	\
-			ft_isalpha.c 	\
-			ft_isascii.c 	\
-			ft_isdigit.c	\
-			ft_isprint.c 	\
-			ft_strlen.c		\
-			ft_strncmp.c 	\
-			ft_strlcat.c 	\
-			ft_strlcpy.c	\
-			ft_strchr.c 	\
-			ft_strrchr.c	\
-			ft_toupper.c 	\
-			ft_tolower.c	\
-			ft_atoi.c		\
-			ft_bzero.c		\
-			ft_memset.c		\
-			ft_memcpy.c		\
-			ft_memmove.c 	\
-			ft_memchr.c 	\
-			ft_memcmp.c 	\
-			ft_strnstr.c	\
-			ft_calloc.c		\
-			ft_strdup.c		\
-			ft_substr.c 	\
-			ft_strjoin.c	\
-			ft_strtrim.c	\
-			ft_split.c		\
-			ft_putchar_fd.c \
-			ft_putendl_fd.c \
-			ft_putnbr_fd.c 	\
-			ft_putstr_fd.c 	\
-			ft_itoa.c 		\
-			ft_strmapi.c 	\
-			ft_striteri.c 	\
+# Folders of the source files (*.c)
+SRC_DIR = sources/
+LIB_DIR = libft/
 
-SRCS_BONUS =	ft_lstnew_bonus.c		\
-				ft_lstadd_front_bonus.c \
-				ft_lstsize_bonus.c 		\
-				ft_lstlast_bonus.c 		\
-				ft_lstadd_back_bonus.c 	\
-				ft_lstdelone_bonus.c 	\
-				ft_lstclear_bonus.c 	\
-				ft_lstiter_bonus.c  	\
-				ft_lstmap_bonus.c 		\
-				
+# Source files
+SRC_FILES = ft_printf_basics.c 	\
 
-OBJS	=	${SRCS:.c=.o}
-# Indica que para cada archivo .c tiene que haber un archivo .o
+LIBFT_FILES = ft_isalnum.c		\
+			ft_isalpha.c 		\
+			ft_isascii.c 		\
+			ft_isdigit.c		\
+			ft_isprint.c 		\
+			ft_strlen.c			\
+			ft_strncmp.c 		\
+			ft_strlcat.c 		\
+			ft_strlcpy.c		\
+			ft_strchr.c 		\
+			ft_strrchr.c		\
+			ft_toupper.c 		\
+			ft_tolower.c		\
+			ft_atoi.c			\
+			ft_bzero.c			\
+			ft_memset.c			\
+			ft_memcpy.c			\
+			ft_memmove.c 		\
+			ft_memchr.c 		\
+			ft_memcmp.c 		\
+			ft_strnstr.c		\
+			ft_calloc.c			\
+			ft_strdup.c			\
+			ft_substr.c 		\
+			ft_strjoin.c		\
+			ft_strtrim.c		\
+			ft_split.c			\
+			ft_putchar_fd.c 	\
+			ft_putendl_fd.c 	\
+			ft_putnbr_fd.c 		\
+			ft_putstr_fd.c 		\
+			ft_itoa.c 			\
+			ft_strmapi.c 		\
+			ft_striteri.c 		\
 
-OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
-# Indica que para cada archivo .c tiene que haber un archivo .o
+# Source files path
+SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
+LIBFT = $(addprefix $(LIB_DIR), $(LIBFT_FILES))
 
-CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror
-RM		=	rm -f
-AR 		= 	ar rcs
+# Objects
+OBJ = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o)
 
-all: ${NAME}
-# Hace todas las reglas y subreglas 
+# Flags
+INC = -I includes/
+FLAGS = -Wall -Wextra -Werror
 
-${NAME} : ${OBJS}
-	$(AR) ${NAME} ${OBJS}
-# Crea la librería (libft.a)
+# all rule
+all: $(NAME)
 
-bonus: $(OBJS) $(OBJS_BONUS)
-	$(AR) $(NAME) $?
+# Compiling command
+$(NAME):
+	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compiling... Wait a sec."
+	@gcc -c $(FLAGS) $(SRC) $(LIBFT) $(INC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo "(•̀ᴗ•́)و $(NAME) generated!".
 
-%o: %.c 
-	${CC} ${CFLAGS} -c $< -o $@
-# Transforma los archivos .c en .o y cambia el nombre del output para los archivos .o
+# clean rule
+clean:
+	@/bin/rm -f $(OBJ)
 
-clean: 
-	${RM} ${OBJS} ${OBJS_BONUS}
-# Borra los ejecutables de las funciones
-
+# fclean rule
 fclean: clean
-	${RM} ${NAME}
-# Borra los ejecutables de las funciones y de la librería
+	@/bin/rm -f $(NAME)
 
+# re rule
 re: fclean all
-# Resetea la carpeta, es decir, borra los ejecutables creados y los crea de nuevo
 
-.PHONY:	all bonus clean fclean re
-# Sirve para que las reglas funcionen correctamente aunque haya archivos con el mismo nombre 
-
+# phony
+.PHONY: all clean fclean re
