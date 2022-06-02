@@ -6,19 +6,26 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 10:11:34 by antmoren          #+#    #+#              #
-#    Updated: 2022/06/01 09:51:22 by antmoren         ###   ########.fr        #
+#    Updated: 2022/06/02 09:57:12 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of the library
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 # Folders of the source files (*.c)
 SRC_DIR = sources/
 LIB_DIR = libft/
 
 # Source files
-SRC_FILES = ft_printf_basics.c 	\
+SRC_FILES = ft_printf_utils.c 	\
+			ft_treat_char.c 	\
+			#ft_treat_decimals.c \
+			#ft_treat_pointer.c 	\
+			#ft_treat_hex.c 		\
+			#ft_treat_percent.c 	\
+			#ft_treat_string.c 	\
+
 
 LIBFT_FILES = ft_isalnum.c		\
 			ft_isalpha.c 		\
