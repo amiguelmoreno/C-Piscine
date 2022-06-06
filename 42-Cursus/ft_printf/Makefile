@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 10:11:34 by antmoren          #+#    #+#              #
-#    Updated: 2022/06/02 09:57:12 by antmoren         ###   ########.fr        #
+#    Updated: 2022/06/03 13:29:58 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,15 @@ SRC_DIR = sources/
 LIB_DIR = libft/
 
 # Source files
+PRINTF = 	ft_printf.c			\
+
 SRC_FILES = ft_printf_utils.c 	\
 			ft_treat_char.c 	\
-			#ft_treat_decimals.c \
-			#ft_treat_pointer.c 	\
-			#ft_treat_hex.c 		\
-			#ft_treat_percent.c 	\
-			#ft_treat_string.c 	\
+			ft_treat_decimals.c \
+			ft_treat_pointer.c 	\
+			ft_treat_hex.c 		\
+			ft_treat_percent.c 	\
+			ft_treat_string.c 	\
 
 
 LIBFT_FILES = ft_isalnum.c		\
@@ -67,7 +69,7 @@ SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 LIBFT = $(addprefix $(LIB_DIR), $(LIBFT_FILES))
 
 # Objects
-OBJ = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o)
+OBJ = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o) $(PRINTF:.c=.o)
 
 # Flags
 INC = -I includes/
@@ -79,7 +81,7 @@ all: $(NAME)
 # Compiling command
 $(NAME):
 	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compiling... Wait a sec."
-	@gcc -c $(FLAGS) $(SRC) $(LIBFT) $(INC)
+	@gcc -c $(FLAGS) $(PRINTF) $(SRC) $(LIBFT) $(INC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "(•̀ᴗ•́)و $(NAME) generated!".
