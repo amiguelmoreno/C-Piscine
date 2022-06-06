@@ -6,12 +6,11 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 09:06:38 by antmoren          #+#    #+#             */
-/*   Updated: 2022/06/03 11:13:37 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/06/06 12:22:10 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
 int	ft_treat_char(va_list ptr, int sub_cnt)
 {

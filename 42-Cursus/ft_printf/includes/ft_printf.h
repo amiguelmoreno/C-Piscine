@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 19:51:39 by antmoren          #+#    #+#             */
-/*   Updated: 2022/06/03 13:00:20 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/06/06 12:56:07 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int		ft_treat_char(va_list ptr, int sub_cnt);
 int		ft_treat_decimal(va_list ptr, int sub_cnt);
 int		ft_treat_decorint10(va_list ptr, int sub_cnt);
 int		ft_treat_unsigned_dec(va_list ptr, int sub_cnt);
-int		ft_treat_hex_min(unsigned long int number, int sub_cnt);
-int		ft_puthexmin(unsigned long int number, int sub_cnt);
-int		ft_treat_hex_may(unsigned long int number, int sub_cnt);
-int		ft_puthexmay(unsigned long int number, int sub_cnt);
+int		ft_treat_hex_min(unsigned int number, int sub_cnt);
+int		ft_puthexmin(unsigned int number, int sub_cnt);
+int		ft_treat_hex_may(unsigned int number, int sub_cnt);
+int		ft_puthexmay(unsigned int number, int sub_cnt);
 int		ft_treat_percent(int sub_cnt);
 int		ft_treat_string(va_list ptr, int sub_cnt);
-int		ft_treat_pointer(unsigned long int number, int sub_cnt);
-int		ft_putpnt(unsigned long int number, int sub_cnt);
+int		ft_treat_pointer(unsigned long number, int sub_cnt);
+int		ft_putpnt(unsigned long number, int sub_cnt);
 void	ft_putchar(char c);
 void	ft_putnbr(long int nb);
 void	ft_putstr(char *str);
